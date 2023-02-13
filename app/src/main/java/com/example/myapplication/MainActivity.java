@@ -23,6 +23,19 @@ public class MainActivity extends AppCompatActivity {
         Log.w(TAG, "warning onCreate");
         Log.v(TAG, "verbose onCreate");
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Toast toast = Toast.makeText(getApplicationContext(), "onRestart", Toast.LENGTH_LONG );
+        toast.show();
+        Log.e(TAG, "ошибка, onRestart");
+        Log.d(TAG, "debug onRestart");
+        Log.i(TAG, "information onRestart");
+        Log.w(TAG, "warning onRestart");
+        Log.v(TAG, "verbose onRestart");
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
