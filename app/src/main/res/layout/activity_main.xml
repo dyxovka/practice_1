@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_gotovo"
+        app:layout_constraintTop_toBottomOf="@+id/button_gotovo1"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
@@ -56,7 +56,7 @@
         android:layout_marginEnd="85dp"
         android:layout_marginBottom="504dp"
         android:text="@string/enter_your_data"
-        android:textColor="#4B0082"
+        android:textColor="#0E5111"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,13 +110,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView_choice"
+        android:id="@+id/textView_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="177dp"
-        android:text="TextView"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
