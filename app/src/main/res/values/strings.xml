@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="enter_your_data">Введите свои данные</string>
+    <string name="phone">Телефон</string>
+    <string name="done">готово</string>
+    <string name="name">Имя</string>
+    <string name="price_of_first">Цена: 6000p</string>
+    <string name="price_of_second">Цена: 5500p</string>
 </resources>
