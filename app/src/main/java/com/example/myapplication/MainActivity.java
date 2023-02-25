@@ -62,6 +62,20 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onStart() {
         super.onStart();
+        Bundle arguments = getIntent().getExtras();
+        try {
+            String name_from = arguments.get("name").toString();
+            TextView editText = findViewById(R.id.editTextTextPersonName);
+            editText.setText(name_from);
+            String phone_from = arguments.get("phone").toString();
+            TextView editText_phone = findViewById(R.id.editTextPhone);
+            editText_phone.setText(phone_from);
+            String done = arguments.get("done").toString();
+            TextView editText_done = findViewById(R.id.textView_done);
+            editText_done.setText(done);
+        } catch (NullPointerException e){
+            System.out.println();
+        }
 
     }
 }

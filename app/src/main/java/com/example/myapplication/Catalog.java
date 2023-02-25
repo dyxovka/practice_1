@@ -30,6 +30,10 @@ public class Catalog extends AppCompatActivity {
         activityCatalogBinding.buttonGotovo1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                intent1.putExtra("name", name);
+                intent1.putExtra("done", "Вы просмотрели каталог");
+                intent1.putExtra("phone", phone);
                 startActivity(intent1);
             }
         });
