@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity  {
         Toast.makeText(this, "Предсказуемо", Toast.LENGTH_LONG).show();
         Log.i(TAG, "нажали декларативно");
     }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +38,6 @@ public class MainActivity extends AppCompatActivity  {
         // создание объекта Intent для запуска второй активности
         Intent intent = new Intent(this, Catalog.class);
         activityMainBinding.editTextTextPersonName.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
-
-
-
         activityMainBinding.buttonGotovo.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -62,29 +57,11 @@ public class MainActivity extends AppCompatActivity  {
 
         );
         setContentView(view);
-
-
-
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Bundle arguments = getIntent().getExtras();
-        try {
-            String name_from = arguments.get("name").toString();
-            TextView editText = findViewById(R.id.editTextTextPersonName);
-            editText.setText(name_from);
-            String phone_from = arguments.get("phone").toString();
-            TextView editText_phone = findViewById(R.id.editTextPhone);
-            editText_phone.setText(phone_from);
-            String done = arguments.get("done").toString();
-            TextView editText_done = findViewById(R.id.textView_done);
-            editText_done.setText(done);
-        } catch (NullPointerException e){
-            System.out.println();
-        }
 
     }
 }

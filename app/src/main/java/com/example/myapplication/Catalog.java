@@ -10,9 +10,6 @@ import android.widget.TextView;
 import com.example.myapplication.databinding.ActivityCatalogBinding;
 
 public class Catalog extends AppCompatActivity {
-    static String name_to;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,31 +21,19 @@ public class Catalog extends AppCompatActivity {
         String name = arguments.get("name").toString();
         String phone = arguments.getString("phone");
         System.out.println(name);
-        name_to = name;
         TextView textView1 = findViewById(R.id.textView5);
-        activityCatalogBinding.textView5.setText(name_to);
+        activityCatalogBinding.textView5.setText(name);
         textView1.setText(name);
 
-        setContentView(view);
+
         Intent intent1 = new Intent(this, MainActivity.class);
-
-
-
-
         activityCatalogBinding.buttonGotovo1.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
-                intent1.putExtra("name", name_to);
-                intent1.putExtra("done", "Вы просмотрели каталог");
-                intent1.putExtra("phone", phone);
                 startActivity(intent1);
             }
         });
-
+        setContentView(view);
 
     }
-
-
 }
