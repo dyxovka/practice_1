@@ -6,4 +6,5 @@
     <string name="name">Имя</string>
     <string name="price_of_first">Цена: 6000p</string>
     <string name="price_of_second">Цена: 5500p</string>
+    <string name="add">Добавить</string>
 </resources>
