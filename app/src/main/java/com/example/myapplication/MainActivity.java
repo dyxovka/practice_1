@@ -1,5 +1,9 @@
 package com.example.myapplication;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -22,6 +26,8 @@ import com.google.android.material.progressindicator.BaseProgressIndicator;
 
 public class MainActivity extends AppCompatActivity  {
     private static final String TAG = "MyApp";
+    private EditText name_user;
+    private EditText phone_user;
     public void onMyButtonClick(View view)
     {
         // выводим сообщение
@@ -32,6 +38,8 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        name_user = findViewById(R.id.editTextTextPersonName);
+        phone_user = findViewById(R.id.editTextPhone);
 
         ActivityMainBinding  activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = activityMainBinding.getRoot();
@@ -53,29 +61,23 @@ public class MainActivity extends AppCompatActivity  {
 // запуск SecondActivity
                 startActivity(intent);
             }
-        }
-
-        );
+        });
         setContentView(view);
+        ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if(result.getResultCode() == Catalog.INFOACTIVITY_CODE) {
+                            name_user.setText(result.getData().getStringExtra("ccc"));
+                        }
+                    }
+                }
+        );
     }
-
     @Override
     protected void onStart() {
         super.onStart();
-        Bundle arguments = getIntent().getExtras();
-        try {
-            String name_from = arguments.get("name").toString();
-            TextView editText = findViewById(R.id.editTextTextPersonName);
-            editText.setText(name_from);
-            String phone_from = arguments.get("phone").toString();
-            TextView editText_phone = findViewById(R.id.editTextPhone);
-            editText_phone.setText(phone_from);
-            String done = arguments.get("done").toString();
-            TextView editText_done = findViewById(R.id.textView_done);
-            editText_done.setText(done);
-        } catch (NullPointerException e){
-            System.out.println();
-        }
 
     }
 }
